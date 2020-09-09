@@ -1,0 +1,29 @@
+Pre->(ON EVERY MACHINE)
+
+1) Active your connection permanently:
+nmcli connection show
+nmcli connection modify ens160 connection.autoconnect yes
+nmcli connection reload
+nmcli connection up ens160
+ifconfig
+
+2) Set the hostname:
+hostnamectl set-hostname master
+hostnamectl set-hostname worker1
+hostnamectl set-hostname worker2
+
+3) Stop Firewalld:
+systemctl stop firewalld
+systemctl disable firewalld
+
+4) Disable the SWAP (virtual memory):
+vi /etc/fstab
+add # before the swap line
+swapoff -a
+
+5) DISBLE THE SELINUX
+vim /etc/sysconfig/selinux
+SELINUX=permissive
+setenforce 0
+
+6) remove all the containers, remove all the images, remove docker (yum remove docker* -y)

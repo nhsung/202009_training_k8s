@@ -1,0 +1,24 @@
+Bash Completion
+----------------
+yum install bash-completion -y
+cd ~/.kube
+kubectl completion bash > http://kube.sh
+source http://kube.sh
+
+vim $HOME/.bashrc
+source $HOME/.kube/http://kube.sh
+
+Describe Node:
+kubectl describe node <nodename>
+
+Kubectl Commands:
+kubectl run <podname> --image=<imagename>
+kubectl get pods -> to show pods
+kubectl get pods -o wide -> to show pod ipaddress, where pod is created
+kubectl describe pod <podname>
+kubectl get pods -A -> to show every pod of kubernetes cluster
+kubectl cluster-info -> to show cluster-information
+POD COMMANDS:
+kubectl run <podname> --image=<imagename>
+kubectl exec -it <podname> -- bash
+kubectl exec -it <podname> -c <containername> -- bash

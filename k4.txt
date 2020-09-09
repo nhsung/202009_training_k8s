@@ -1,0 +1,47 @@
+YAML
+----------
+#vim first-pod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+name: webpod
+spec:
+containers:
+- name: webpod
+image: nginx
+
+#kubectl create -f first-pod.yml
+OR
+#kubectl apply -f first-pod.yml
+
+#kubectl delete -f <filename>
+
+Multi Container Pod
+====================
+#vim first-pod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+name: webpod
+spec:
+containers:
+- name: webpod
+image: nginx
+- name: db
+image: redis
+
+Init Containers
+=================
+#vim init-pod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+name: webpod
+spec:
+containers:
+- name: webpod
+image: nginx
+initContainers:
+- name: db
+image: redis
+args: ["sleep","5"]

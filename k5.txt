@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+name: webpod
+labels:
+<name>: <value>
+spec:
+containers:
+- name: webpod
+image: nginx
+#kubectl get pods --show-labels -> to show labels of every pod
+#kubectl label pod <podname> env=sales -> to set label with command
+#kubectl label pod <podname> env- -> to remove label
+#kubectl label --overwrite pod <podname> env=dev -> to overwrite existing labels
+#kubectl get pods -l env=production -> to filter env=production label
+#kubectl get pods -l env!=production -> to filter pods except env=production
+
+#kubectl delete pods -l label=<label>
+#kubectl delete pods -l env=<label>
